@@ -2,14 +2,14 @@
   <div class="mod-albums">
     <div class="hd log url">
       <h2>{{ title }}</h2>
-      <router-link to='/more' tag="div">
+      <router-link :to="{name:'MoreList',params:{musictype:this.type,title:title}}" tag="div">
         更多
       </router-link>
     </div>
     <div class="container">
       <div class="gallery">
         <div class="scroller">
-          <router-link to='/' tag='div' class='card url' v-for="(item, index) in TodayRecommend" :key="index">
+          <router-link :to="{name:'MusicPlay',params:{songid:item.song_id}}" tag='div' class='card url' v-for="(item, index) in TodayRecommend" :key="index">
             <div class="album">
               <img :src="item.pic_big" alt="item.title">
               <div class="name">
@@ -31,9 +31,9 @@ export default {
       type: String,
       default: ''
     },
-    url: {
+    type: {
       type: String,
-      default: '/v1/restserver/ting?method=baidu.ting.billboard.billList&type=1&size=6&offset=0'
+      default: '1'
     }
   },
   data () {
@@ -42,7 +42,7 @@ export default {
     }
   },
   mounted () {
-    let url = this.HOST + this.url
+    let url = this.HOST + '/v1/restserver/ting?method=baidu.ting.billboard.billList&type=' + this.type + '&size=6&offset=0'
     this.$axios.get(url).then(res => {
       this.TodayRecommend = res.data.song_list
     }).catch(err => {
@@ -73,6 +73,7 @@ export default {
   width: 64px;
   font-size: 12px;
   text-align: right;
+  cursor: pointer;
 }
 .mod-albums .gallery{
   overflow: hidden;

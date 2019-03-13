@@ -12,7 +12,9 @@
   },
   "dependencies": {
     "normalize.css": "^8.0.1",
+    "pull-to-refresh": "^1.2.3",
     "vue": "^2.5.2",
+    "vue-pull-refresh": "^0.2.7",
     "vue-router": "^3.0.1"
   },
   "devDependencies": {
