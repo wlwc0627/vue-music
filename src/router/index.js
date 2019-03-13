@@ -10,11 +10,18 @@ import HotList from '@/pages/musiclist/HotList'
 import NewsList from '@/pages/musiclist/NewsList'
 import KingList from '@/pages/musiclist/KingList'
 import MoreList from '@/pages/MoreList'
+import MusicPlay from '@/pages/MusicPlay'
+import ArtistDetails from '@/pages/artistDetails/artistDetails'
 
 Vue.use(Router)
 
 export default new Router({
   routes: [
+    {
+      path: '/musicplay',
+      name: 'MusicPlay',
+      component: MusicPlay
+    },
     {
       path: '/',
       redirect: '/home',
@@ -60,6 +67,11 @@ export default new Router({
           path: 'more',
           name: 'MoreList',
           component: MoreList
+        },
+        {
+          path: 'artistdetails',
+          name: 'ArtistDetails',
+          component: ArtistDetails
         }
       ]
     }

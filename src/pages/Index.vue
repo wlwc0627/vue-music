@@ -28,6 +28,11 @@ export default {
 </script>
 
 <style lang='css' scoped>
+.index, .index ul{
+  max-width: 640px;
+  min-width: 320px;
+  margin: 0 auto;
+}
 .index img{
   width: 26px;
   height: 26px;
